@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+
+<!-- notes
+
+testng.xml >>  NO doUserReg, doLogin methods in TestCase1.class 
+NO  BaseTestClass>>>   <class name="basics.BaseTestClass"/>
+
+-->
+
+<!-- thread-count="5" is deleted  from <test  name="Test"> -->
+
+<suite name="Suite">
+  <!--  <test thread-count="5" name="Test"> Test -->
+   <test  name="Test">        <!-- thread-count="5" is deleted  -->
+    <classes>
+     
+      <class name="basics.TestCase3"/>
+      <class name="basics.TestCase2"/>
+      <class name="basics.BaseTestClass"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+<!-- 
+notes:
+
+all testcases in test folder -->
+<!--
+     1.  test order based on Annotations in the class
+     2.  test cases execution  order of classes is based on the order of classes in the testng.xml
+ 
+<classes>
+      <class name="basics.TestCase1"/>
+       <class name="basics.TestCase3"/>
+      <class name="basics.TestCase2"/>
+      <class name="basics.BaseTestClass"/>
+    </classes>  
+    TestCase1 TestCase3 TestCase2 >> in TestCase2.java class - 
+    // after execution see results of running suite - not console - to see the order of methods (in the classes) execution
+    
+    3. order of @Test methods based on priority or by alphabetically
+and then from the classes its by alphabetically by default or else on priority - 1 highest
+
+    4. BaseTestClass has @BeforeSuite so it is first test
+
+
+testng.xml >> no doUserReg, doLogin methods in TestCase1.class
+
+ 
+ NO  BaseTestClass>>>   <class name="basics.BaseTestClass"/>
+ as the BaseTest class is extended to other classes its not required here
+ it will be executed by default 
+ 
+
+ -->

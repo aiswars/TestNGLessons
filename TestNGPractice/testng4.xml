@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+
+<!-- testng4.xml >> <groups><include> in <test> level >> ONLY the groups in that class gets executed; 
+not all the @test methods of that class 
+TestCase1. class has a group TC1functional for 2 methods >> only those
+2 testmethods of that <test Test1> gets executed
+--> 
+<!-- thread-count="5" is deleted from <test name="Test"> -->
+<!-- each class in each <test> change the name of the <test> -->
+
+<suite name="Suite">
+
+	<!-- <test thread-count="5" name="Test"> Test -->
+
+	<test name="Test1">
+	
+	<groups>
+			<run>
+				<include name="TC1functional"></include>
+			</run>
+		</groups>
+		
+		<classes>
+			<class name="basics.TestCase1" />
+		</classes>
+	</test> <!-- Test -->
+
+
+	<test name="Test2">
+		<classes>
+			<class name="basics.TestCase2" />
+			<!-- <class name="basics.BaseTestClass"/> -->
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Test3">
+
+		
+
+		<classes>
+			<class name="basics.TestCase3" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+
+<!-- notes: // after execution see results of running suite - not console 
+	- to see the order of methods (in the classes) execution 
+	
+ testng4.xml >> <groups><include> OR <exclude> can be done in <suite> level or <test> level 
+ 
+ testng4.xml >> <groups> ONLY the groups gets executed of that <test> or <suite> depends 
+ on where it is defined; not all the @test methods -
+ in <test> level >> ONLY the groups in that class/classes in that <test> gets executed;
+ not all @Test methods
+ ONLY the groups in the class gets executed; not all the @test methods 
+ if thatthe @test methods of that class 
+ 
+tried : TestCase1. class has a group TC1functional for 2 methods >> only those
+2 testmethods of that <test Test1> gets executed
+
+[RemoteTestNG] detected TestNG version 7.4.0
+
+@BeforeSuite Initializing Everything !!!
+
+@Test(priority=1,groups= TC1functional )  doUserReg in TestCase1             Executing User Reg test
+@Test(priority=2,groups= TC1functional ) doLogin  in TestCase1              Executing login test
+
+@Test(groups="smoke")validateTitles validateTitles TestCase2                Beginning
+
+@Test(priority=1    doUserReg in TestCase3              Executing User Reg test
+@Test(priority=2,     doLogin in TestCase3               Executing login test
+@Test(priority=3,        thirdTest  in TestCase3        Executing Third Test
+@Test(priority=4,            fourthTest in TestCase3       Executing Fourth Test
+
+@AfterSuite Quitting Everything !!!
+
+@BeforeTest createDBConn, @AfterTest closeDBConn, @BeforeMethod launchBrowser, 
+@AfterMethod closeBrowser methods didnt get executed
+
+ -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

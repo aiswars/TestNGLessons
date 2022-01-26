@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- testng7.xml >> 
+<groups><include > can be done in <suite> level or <test> level 
+
+1. basics.TestCase1 & basics.TestCase3 in Test1
+2. TestCase3 in Test3
+3. <groups> in Test1  >> groups applied only to <test Test1> >>TestCase1 & TestCase3 classes
+   TestCase3 class in Test3 also - in <test Test3> all tests of TestCase3 gets executed
+
+   -->
+
+
+
+<!--  how to give multiple groups of a class  ?????????????? -->
+
+<suite name="Suite">
+	<!-- <test thread-count="5" name="Test"> Test -->
+	  
+	<test name="Test1">
+	
+	<!-- <groups> in <test> level -->
+	<groups>
+			<run> <include name="functional" > </include> </run>
+			
+      </groups>
+     
+	
+	
+		<classes>
+			<class name="basics.TestCase1" />
+			<class name="basics.TestCase3" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Test2">
+		<classes>
+			<class name="basics.TestCase2" />
+			<!-- <class name="basics.BaseTestClass"/> -->
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Test3">
+	<classes>
+			<class name="basics.TestCase3" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="Test4">
+	<classes>
+			<class name="basics.TestCase4" />
+		</classes>
+	</test> <!-- Test -->
+	
+</suite> <!-- Suite -->
+
+
+
+<!-- notes: 
+
+
+//  TestCase1 doUserReg   groups="TC1functional") 
+	  //  TestCase1 doLogin  groups="TC1functional") 
+	  //  TestCase1 dogrouping1  groups= {"functional","smoke"}) 
+	  //  TestCase1 dogrouping2  groups= "smoke") 
+	  
+ 	  // TestCase2   validateTitles  (groups = "smoke")
+ 	
+ 	  //TestCase3  doUserReg  groups= {"functional","smoke"})
+	  //TestCase3  doLogin  groups= {"functional","smoke"})
+	//TestCase3  thirdTest  groups= {"functional","smoke"})
+	//TestCase3  fourthTest  no groups
+	
+	//TestCase4  dogrouping1  groups= {"functional","smoke"})
+	//TestCase4  dogrouping2 no groups
+	//TestCase4  dogrouping3  groups= {TC4group})
+	
+	
+	
+1. basics.TestCase1 & basics.TestCase3 in Test1
+2. TestCase3 in Test3
+3. <groups> in Test1
+
+Test1>> TestCase1 dogrouping1 
+
+Test1>> TestCase3  doUserReg 
+Test1>> TestCase3  doLogin 
+Test1>> TestCase3  thirdTest 
+
+Test2>> TestCase2 validateTitles 
+
+Test3>> TestCase3  doUserReg 
+Test3>> TestCase3  doLogin 
+Test3>> TestCase3  thirdTest 
+Test3>> TestCase3  fourthTest 
+
+Test4>> TestCase4  dogrouping1 
+Test4>> TestCase4  dogrouping2 
+Test4>> TestCase4  dogrouping3
+	
+	
+	
+	
+	
+ -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

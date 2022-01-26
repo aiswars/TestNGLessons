@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- testng6.xml >> <groups> in <test> level inside <Test1>
+ONLY groups of Test1 gets executed!! and the rest of tests>>> <test> in <suite>
+
+<groups> in <test> level>>>..>>> applied ONLY to the <classes> of the <test> 
+1. ONLY the tests having the given groups gets executed,tests of classes in <test> 
+2. tests without the given group in this <test> wnt get executed << groups limited the testing 
+   only in this <test>; not the entire <Suite>
+3. plus all other tests <test> of the suite(tests in the other <test>)gets executed.
+
+<groups> in <Suite> level>>>.. >>> applied to the all <test> tests of the <Suite>
+1. ONLY the tests having the given groups gets executed, tests of classes in all <test>s of that <Suite>
+2. tests without the given group wnt get executed>>.if that group name is not there for any @test method then that method wont get executed.
+
+ <groups> >>> ONLY the groups gets executed of that <test> or <suite> depends on where it is defined; 
+ not all the @test methods --> 
+<!-- <groups> can be done in <suite> level or <test> level    -->
+<!-- thread-count="5" is deleted from <test name="Test"> -->
+<!-- each class in each <test> change the name of the <test> -->
+
+<!--  how to give multiple groups of a class  ?????????????? -->
+
+<suite name="Suite">
+	<!-- <test thread-count="5" name="Test"> Test -->
+	  
+	<test name="Test1">
+	
+	<!-- <groups> in <test> level -->
+	<groups>
+			<run> <include name="functional" > </include> </run>
+			
+      </groups>
+     
+	
+	
+		<classes>
+			<class name="basics.TestCase1" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Test2">
+		<classes>
+			<class name="basics.TestCase2" />
+			<!-- <class name="basics.BaseTestClass"/> -->
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Test3">
+	<classes>
+			<class name="basics.TestCase3" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="Test4">
+	<classes>
+			<class name="basics.TestCase4" />
+		</classes>
+	</test> <!-- Test -->
+	
+</suite> <!-- Suite -->
+
+
+
+<!-- notes: 
+groups >> to limit the no of testcases execution!! - retesting or sanity or smoke testing
+// after execution see results of running suite - not console 
+	- to see the order of methods (in the classes) execution 
+	
+ testng6.xml >> <groups> 
+1. ONLY the given groups in the class/classes of the <test> gets executed; 
+2. not all the @test methods of the class in the <test>
+3. if that group name is not there for any @test method then that method wont get executed.
+4.if that group name is not there for any @test method in the class then NOTHING get executed.
+
+  tried: <groups> in <test> level - tests only from classes in <Test1>
+given groups functional in <test Test1> gets executed!!  >> 
+ Result:  ONLY TestCase1 dogrouping1 from <test Test1> TestCase1.class and other all tests from other classes
+
+	  //  TestCase1 doUserReg   groups="TC1functional") 
+	  //  TestCase1 doLogin  groups="TC1functional") 
+	  //  TestCase1 dogrouping1  groups= {"functional","smoke"}) 
+	  //  TestCase1 dogrouping2  groups= "smoke") 
+	  
+ 	  // TestCase2   validateTitles  (groups = "smoke")
+ 	
+ 	  //TestCase3  doUserReg  groups= {"functional","smoke"})
+	  //TestCase3  doLogin  groups= {"functional","smoke"})
+	//TestCase3  thirdTest  groups= {"functional","smoke"})
+	//TestCase3  fourthTest  no groups
+	
+	//TestCase4  dogroup ing1  groups= {"functional","smoke"})
+	//TestCase4  dogrouping2 no groups
+	//TestCase3  dogrouping3  groups= {TC4group})
+	
+	 
+ <groups> in <test> level inside <Test1>
+	
+
+<suite name="Suite">
+  
+	<test name="Test1">
+	
+	        >>> <groups> in <test> level 
+	<groups>
+			<run> <include name="functional" > </include> </run>
+			
+      </groups>
+	
+		<classes>
+			<class name="basics.TestCase1" />
+		</classes>
+	</test>
+	<test name="Test2">
+	
+	
+	Results >> 1 methods>> ONLY TestCase1 dogrouping1 from <test Test1> TestCase1.class 
+	                       and other all tests from other classes
+	
+	[RemoteTestNG] detected TestNG version 7.4.0
+	
+@BeforeSuite Initializing Everything !!!
+
+@Test(priority=1, groups= {"functional","smoke"} )  dogrouping1 in TestCase1             Executing User Reg test
+
+@Test (groups=  smoke   )validateTitles validateTitles TestCase2                Beginning
+
+@Test(priority=1  groups= {"functional","smoke"}  doUserReg in TestCase3              Executing User Reg test
+@Test(priority=2,  groups= {"functional","smoke"}   doLogin in TestCase3               Executing login test
+@Test(priority=3,   groups= {"functional","smoke"}     thirdTest  in TestCase3        Executing Third Test
+@Test(priority=4,            fourthTest in TestCase3       Executing Fourth Test
+
+@Test(priority=2,  groups= {"functional","smoke"}   doLogin in TestCase4               Executing login test
+@Test(priority=3,   no groups  dogrouping2  in TestCase4        Executing Third Test
+@Test(priority=4,            dogrouping3 in TestCase4       Executing Fourth Test
+
+@AfterSuite Quitting Everything !!!
+	
+ 
+ -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

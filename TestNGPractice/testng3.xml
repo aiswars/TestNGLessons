@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+
+<!-- testng3.xml >>  each class in each <test>  change the name of the <test>-->
+<!-- thread-count="5" is deleted  from <test  name="Test"> -->
+<!-- each class in each <test>  change the name of the <test>-->
+
+<suite name="Suite">
+ 
+  <!--  <test thread-count="5" name="Test"> Test -->
+   
+   <test  name="Test1">
+    <classes>
+      <class name="basics.TestCase1"/>
+       </classes>
+  </test> <!-- Test -->
+
+
+<test  name="Test3">
+    <classes>
+      <class name="basics.TestCase3"/>
+        </classes>
+  </test> <!-- Test -->
+  
+  
+<test  name="Test2">
+    <classes>
+      <class name="basics.TestCase2"/>
+    <!--   <class name="basics.BaseTestClass"/> -->
+    </classes>
+  </test> <!-- Test -->
+  
+</suite> <!-- Suite -->
+
+
+
+<!-- 
+notes:
+
+ // after execution see results of running suite - not console - to see the order of methods (in the classes) execution
+    
+
+testng2.xml >>  doUserReg, doLogin methods in TestCase1.class
+
+each class in each <test>  change the name of the <test> - for various type of testing like retesting 
+regression sanity smoke- can group for these tests also or like qa, staging, pdtn testing
+>>in results/output window:
+Suite >>
+   >>Test1 >>  basics.TestCase1.class >> methods in TestCase1.class
+   >>Test3 >> basics.TestCase3.class >> methods 
+   >>Test2 >> basics.TestCase2.class >>methods 
+
+
+output>>Results of Running Suite
+[RemoteTestNG] detected TestNG version 7.4.0
+
+@BeforeSuite Initializing Everything !!!
+
+@BeforeTest createDBConn in TestCase1       Creating db conn
+@BeforeMethod launchBrowser in TestCase1            Launching browser
+@Test(priority=1,groups="functional")  doUserReg in TestCase1             Executing User Reg test
+@AfterMethod closeBrowser  in TestCase1     Closing the browser
+@BeforeMethod launchBrowser in TestCase1            Launching browser
+@Test(priority=2,groups="functional") doLogin  in TestCase1              Executing login test
+@AfterMethod closeBrowser  in TestCase1     Closing the browser
+@AfterTest closeDBConn in TestCase1     Closing DB Conn
+
+@Test(priority=1    doUserReg in TestCase3              Executing User Reg test
+@Test(priority=2,     doLogin in TestCase3               Executing login test
+@Test(priority=3,        thirdTest  in TestCase3        Executing Third Test
+@Test(priority=4,            fourthTest in TestCase3       Executing Fourth Test
+
+@Test(groups="smoke")validateTitles validateTitles TestCase2                Beginning
+
+@AfterSuite Quitting Everything !!!
+
+
+ -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
