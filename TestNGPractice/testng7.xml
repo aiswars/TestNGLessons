@@ -6,7 +6,7 @@
 
 1. basics.TestCase1 & basics.TestCase3 in Test1
 2. TestCase3 in Test3
-3. <groups> in Test1  >> groups applied only to <test Test1> >>TestCase1 & TestCase3 classes
+3. <groups>include> in Test1  >> groups applied only to <test Test1> >>TestCase1 & TestCase3 classes
    TestCase3 class in Test3 also - in <test Test3> all tests of TestCase3 gets executed
 
    -->
@@ -81,6 +81,7 @@
 2. TestCase3 in Test3
 3. <groups> in Test1
 
+Results:
 Test1>> TestCase1 dogrouping1 
 
 Test1>> TestCase3  doUserReg 

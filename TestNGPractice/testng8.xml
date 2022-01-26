@@ -79,6 +79,7 @@ excluded all the test methods with the given groups
 2. TestCase3 in Test3
 3. <groups> in Test1
 
+Results: below methods wont be there >> except those, other methods will be executed 
 Test1>> TestCase1 dogrouping1 
 
 Test1>> TestCase3  doUserReg 
