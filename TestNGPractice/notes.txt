@@ -1,0 +1,40 @@
+Project > Build Path >  Add Library > 
+Select TestNG (Eclipse inbuilt TestNG)>> next
+
+Listeners.java class
+--------------------
+implements ITestListener interface in Listeners.java class
+click on Add implemented methods to add ITestListener interface>> Hover ClassName
++result.getName()); >> gives the name of the test methods in the class- to know the failed or passed methods
+onTestFailure()>> System.out.println("Capturing Screenshot for the Failed test -- "+result.getName()); >> print this for all failed>>
+here its for TestCase5Failure
+onTestSuccess()>> System.out.println("Passed Test - "+result.getName()); >> will print this for all passed
+the actions in this listeners java class is applicable to all teestcases classes mentioned in the testng.xml file having <listeners> tag
+
+
+testngListeners.xml
+-------------------
+also add <listeners> tag & listenerclassname in testng.xml file <suite> level >>testngListeners.xml
+<listeners>
+		<listener class-name="LearnListeners.Listeners"></listener> 
+	</listeners>
+
+
+
+
+TestCase5Failure.java >> testcase javaclass
+-----------------
+Assert.fail    // to make the test fail
+Assert.fail("Failing the login test");
+
+
+TestCase6SkipTest.java
+----------------------
+1. throw new SkipException("Skipping the test") // to forcefully skip a test
+2. Use dependonMethods to skip depeneding tests>> if test1 fails then test2 wont execute 
+   if dependsonmethods = test1 for  test2
+   
+   add this test also to the tetsng.xml file>> testngListeners.xml
+   
+   
+   
