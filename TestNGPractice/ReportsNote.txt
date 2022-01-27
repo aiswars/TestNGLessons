@@ -1,0 +1,35 @@
+
+In Listeners.java use Reporter.log - import org.testng.Reporter;
+
+testNGListeners.xml >> RunAs TestNGSuite
+
+open test-output folder
+/emailable-report.html
+index.html
+
+Listeners.java onTestFailure(ITestResult result
+to make it a link give > Reporter.log("<a href=\"F:\\screenshot\\erroor.jpg\">Screenshot link</a>");
+open /emailable-report.html in browser tab > check for failed testcase and check the link for the screenshot
+
+the screen shot is openning in the same winow
+
+to open in a new window give >  target=\"_blank\" 
+		
+adding thumbnails
+	Reporter.log("  <a href=\"C:\\automation\\screenshots\\sample.png\" target=\"_blank\">  <img height=200 width=200 src=\"C:\\automation\\screenshots\\sample.png\">    </a>");
+	 	
+	
+		Reporter.log("Failed test>> Screenshot link");//to print in emailablereport.html
+		Reporter.log(" Screenshot link "); //to print in emailablereport.html
+	
+		//to add a link to screenshot location C:\\automation\\screenshots\\sample.png
+		Reporter.log("  <a href=\"C:\\automation\\screenshots\\sample.png\">   Screenshotlink opening same window </a>"); //screenshot link in emailablereport.html
+	
+		//link to open in new wiwndow>>   target=\"_blank\" 
+		Reporter.log("  <a href=\"C:\\automation\\screenshots\\sample.png\" target=\"_blank\">   Screenshotlink opening in new window </a>"); //opening screenshot in new window
+		
+		Reporter.log("<br>");//break- to get a newline
+		//adding a thumbnail, instead of text.
+		Reporter.log("  <a href=\"C:\\automation\\screenshots\\sample.png\" target=\"_blank\">  <img height=200 width=200 src=\"C:\\automation\\screenshots\\sample.png\">    </a>");
+	 	
+		
