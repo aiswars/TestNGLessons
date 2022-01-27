@@ -1,0 +1,68 @@
+[RemoteTestNG] detected TestNG version 7.4.0
+
+@BeforeSuite BaseTestClass Initializing Everything !!!
+
+TC6 @Test TC6SkipMethod1 to make a test skip>> throw new Skip Exception   
+TC5 @Test  TC5FailMethod1 - to fail>>Assert.Fail - Capture Screenshot
+TC2 @Test  TC2Method1(groups=  smoke   )validateTitles validateTitles TestCase2                Beginning
+
+TC1 @BeforeTest  TC1BTcreateDBConn in TestCase1       Creating db conn
+
+TC1 @BeforeMethod TC1BMlaunchBrowser in TestCase1            Launching browser
+TC1 @Test   TC1Method1(priority=1,groups= TC1functional )  doUserReg in TestCase1             Executing User Reg test
+TC1 @AfterMethod TC1AMcloseBrowser  in TestCase1     Closing the browser
+
+TC1 @BeforeMethod TC1BMlaunchBrowser in TestCase1            Launching browser
+TC1 @Test  TC1Method2  (priority=2,groups= TC1functional ) doLogin  in TestCase1              Executing login test
+TC1 @AfterMethod TC1AMcloseBrowser  in TestCase1     Closing the browser
+
+TC1 @BeforeMethod TC1BMlaunchBrowser in TestCase1            Launching browser
+TC1 @Test  TC1Method3grouping1 (priority=1, groups= {"functional","smoke"} )  dogrouping1 in TestCase1             Executing User Reg test
+TC1 @AfterMethod TC1AMcloseBrowser  in TestCase1     Closing the browser
+
+TC1 @BeforeMethod TC1BMlaunchBrowser in TestCase1            Launching browser
+TC1 @Test  TC2Method4grouping2 (priority=1, groups= smoke )  dogrouping2 in TestCase1             Executing User Reg test
+TC1 @AfterMethod TC1AMcloseBrowser  in TestCase1     Closing the browser
+
+TC4 @Test  TC4dogrouping1(priority=2,  groups= {"functional","smoke"}   doLogin in TestCase4               Executing login test
+TC4 @Test (priority=3,   no groups  dogrouping2  in TestCase4        Executing Third Test
+TC4 @Test  TC4dogrouping3(priority=4,            dogrouping3 in TestCase4       Executing Fourth Test
+TC3 @Test  TC3Method1(priority=1  groups= {"functional","smoke"}  doUserReg in TestCase3              Executing User Reg test
+TC3 @Test TC3Method2(priority=2,  groups= {"functional","smoke"}   doLogin in TestCase3               Executing login test
+TC3 @Test TC3Method3 (priority=3,   groups= {"functional","smoke"}     thirdTest  in TestCase3        Executing Third Test
+TC3 @Test TC3Method4 (priority=4,         fourthTest in TestCase3       Executing Fourth Test
+
+TC1 @AfterTest  TC1ATcloseDBConn in TestCase1     Closing DB Conn
+
+
+@AfterSuite BaseTestClass Quitting Everything !!!
+
+
+===============================================
+Suite
+Total tests run: 14, Passes: 12, Failures: 1, Skips: 1
+===============================================
+
+<suite name="Suite">
+	<test name="Test1">
+		<classes>
+			<class name="basics.TestCase6SkipTest" />
+		</classes>
+	</test> <!-- Test -->
+	
+	<test name="Test2">
+		<classes>
+			<class name="basics.TestCase5Failure" />
+			<class name="basics.TestCase2" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Test3">
+		<classes>
+			<class name="basics.TestCase1" />
+			<class name="basics.TestCase4" />
+			<class name="basics.TestCase3" />
+			<class name="basics.BaseTestClass" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="Test1">
+		<classes>
+			<class name="basics.TestCase6SkipTest" />
+		</classes>
+	</test> <!-- Test -->
+	
+	<test name="Test2">
+		<classes>
+			<class name="basics.TestCase5Failure" />
+			<class name="basics.TestCase2" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Test3">
+		<classes>
+			<class name="basics.TestCase1" />
+			<class name="basics.TestCase4" />
+			<class name="basics.TestCase3" />
+			<class name="basics.BaseTestClass" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+
+<!-- 
+
+[RemoteTestNG] detected TestNG version 7.4.0
+
+@BeforeSuite BaseTestClass Initializing Everything !!!
+
+@Test TC6SkipMethod1 to make a test skip>> throw new Skip Exception   
+@Test  TC5FailMethod1 - to fail>>Assert.Fail - Capture Screenshot
+@Test TC2 TC2Method1(groups=  smoke   )validateTitles validateTitles TestCase2                Beginning
+
+@BeforeTest TC1 TC1BTcreateDBConn in TestCase1       Creating db conn
+
+@BeforeMethod TC1 TC1BMlaunchBrowser in TestCase1            Launching browser
+@Test TC1  TC1Method1(priority=1,groups= TC1functional )  doUserReg in TestCase1             Executing User Reg test
+@AfterMethod TC1 TC1AMcloseBrowser  in TestCase1     Closing the browser
+
+@BeforeMethod TC1 TC1BMlaunchBrowser in TestCase1            Launching browser
+@Test TC1 TC1Method2  (priority=2,groups= TC1functional ) doLogin  in TestCase1              Executing login test
+@AfterMethod TC1 TC1AMcloseBrowser  in TestCase1     Closing the browser
+
+@BeforeMethod TC1 TC1BMlaunchBrowser in TestCase1            Launching browser
+@Test  TC1Method3grouping1 (priority=1, groups= {"functional","smoke"} )  dogrouping1 in TestCase1             Executing User Reg test
+@AfterMethod TC1 TC1AMcloseBrowser  in TestCase1     Closing the browser
+
+@BeforeMethod TC1 TC1BMlaunchBrowser in TestCase1            Launching browser
+@Test  TC2Method3grouping2 (priority=1, groups= smoke )  dogrouping2 in TestCase1             Executing User Reg test
+@AfterMethod TC1 TC1AMcloseBrowser  in TestCase1     Closing the browser
+
+@Test TC4 TC4dogrouping1(priority=2,  groups= {"functional","smoke"}   doLogin in TestCase4               Executing login test
+@Test TC4 (priority=3,   no groups  dogrouping2  in TestCase4        Executing Third Test
+@Test TC4  TC4dogrouping3(priority=4,            dogrouping3 in TestCase4       Executing Fourth Test
+@Test TC3 TC3Method1(priority=1  groups= {"functional","smoke"}  doUserReg in TestCase3              Executing User Reg test
+@Test TC3 TC3Method2(priority=2,  groups= {"functional","smoke"}   doLogin in TestCase3               Executing login test
+@Test TC3 TC3Method3 (priority=3,   groups= {"functional","smoke"}     thirdTest  in TestCase3        Executing Third Test
+@Test TC3 TC3Method4 (priority=4,         fourthTest in TestCase3       Executing Fourth Test
+
+@AfterTest TC1 TC1ATcloseDBConn in TestCase1     Closing DB Conn
+
+
+@AfterSuite BaseTestClass Quitting Everything !!!
+
+-->
