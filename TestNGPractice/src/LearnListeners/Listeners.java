@@ -22,9 +22,12 @@ public class Listeners implements ITestListener{
 	}
 
 	public void onTestFailure(ITestResult result) {
-
-		System.setProperty("org.uncommons.reportng.escape-output","false");
-		 //Reporter.log("<a href=\"F:\\screenshot\\error.jpg\" target=\"_blank\">Screenshot link</a>");
+		
+		//TestNG ReportNG
+		System.setProperty("org.uncommons.reportng.escape-output","false");  //to generate html output in htm report of TestNG ReportNG
+		 
+		//TestNG Reporter
+		//Reporter.log("<a href=\"F:\\screenshot\\error.jpg\" target=\"_blank\">Screenshot link</a>");
 		
 		//Reporter.log("<br>");
 		//Reporter.log("<a href=\"F:\\screenshot\\error.jpg\" target=\"_blank\"><img height=200 width=200 src=\"F:\\screenshot\\error.jpg\"></a>");

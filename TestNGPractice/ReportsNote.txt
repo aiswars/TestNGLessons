@@ -1,4 +1,7 @@
-
+ TestNG Reports - TestNG Reporter & 	 TestNG ReportNG
+ 
+1. TestNG Reporter 
+----------------------
 In Listeners.java use Reporter.log - import org.testng.Reporter;
 
 testNGListeners.xml >> RunAs TestNGSuite
@@ -32,4 +35,28 @@ adding thumbnails
 		//adding a thumbnail, instead of text.
 		Reporter.log("  <a href=\"C:\\automation\\screenshots\\sample.png\" target=\"_blank\">  <img height=200 width=200 src=\"C:\\automation\\screenshots\\sample.png\">    </a>");
 	 	
+	______________________________________________________________________________________________________________________________________________________________
+	
+	
+2. TestNG ReportNG
+
+	TestNG Report- ReportNG -an extension to TestNg
+----------------------------------------------------------------
+	dependency from mvnrepository- add to pom.xml
+	
+	HTMLREporter.java class file in the jar files- pkg name org.uncommons.reportng
+	add this class to the testng.xml file>> testNGListeners.xml 
+		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
 		
+		if any exceptions occurs add a ReportNG dependency file- google juice
+add google juice dependency also from mvnrepository		
+
+
+testNGListeners.xml >> RunAs TestNGSuite
+
+open test-output>> check for html folder>> open index.html from the folders
+
+//TestNG ReportNG
+		System.setProperty("org.uncommons.reportng.escape-output","false");  //to generate html output in html report of TestNG ReportNG
+		try using this tag and without using this tags
+		 
