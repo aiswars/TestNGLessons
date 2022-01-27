@@ -1,3 +1,20 @@
+
+
+BeforeSuite         S	          <Suite> - for the entire <Suite>
+BeforeTest           T	      <test> - all classes in the <test>- for the <test>
+BeforeClass          C	          Classname.java- one time for the class
+BeforeMethod         M	             Classname.java - with each method in the class
+Test priority1/by Alphabetical of methods	Classname.java- each method in each class
+AfterMethod	
+AfterClass	
+AfterTest	
+AFterSuite	
+
+
+
+
+
+
 [RemoteTestNG] detected TestNG version 7.4.0
 
 @BeforeSuite BaseTestClass Initializing Everything !!!
