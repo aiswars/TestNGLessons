@@ -38,3 +38,23 @@ TestCase6SkipTest.java
    
    
    
+  testngMasterSuite.xml   - multiple suites in testng xml fiel
+--------------------------------------------------------------------------
+ Add --  </suite-files> in testNG xml file.
+ to perform multiple testsuites like regression and retesting
+ 
+ 	   
+ In testngMasterSuite.xml ---
+  <suite name="Master Suite">
+  
+	<suite-files>
+		<suite-file path="./testng.xml"></suite-file>
+		<suite-file path="./testng10pkg2.xml"></suite-file>
+	</suite-files>
+	
+</suite> <!-- Suite -->
+
+	   
+  testngMasterSuite.xml  >> Run As TestNG Suite
+  testng10pkg2.xml and testng.xml
+  
