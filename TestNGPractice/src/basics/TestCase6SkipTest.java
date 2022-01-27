@@ -2,7 +2,7 @@ package basics;
 
 import org.testng.SkipException;
 import org.testng.annotations.Test;
-//a testcase to make the skip
+
 public class TestCase6SkipTest {
 
 	@Test

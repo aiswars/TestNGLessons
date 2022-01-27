@@ -2,9 +2,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
 
-<!-- testng3.xml >>  each class in each <test>  change the name of the <test>-->
+<!-- testng3.xml >>   multiple <test>s
+each class in each <test>  change the name of the <test>-->
+
 <!-- thread-count="5" is deleted  from <test  name="Test"> -->
 <!-- each class in each <test>  change the name of the <test>-->
+
+
 
 <suite name="Suite">
  
@@ -37,6 +41,11 @@
 
 <!-- 
 notes:
+
+
+ if NO  BaseTestClass then also it executes!  <class name="basics.BaseTestClass"/>
+ as the BaseTest class is extended to other classes its not required here
+ it will be executed by default 
 
  // after execution see results of running suite - not console - to see the order of methods (in the classes) execution
     

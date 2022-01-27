@@ -2,16 +2,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
 <!-- testng5.xml >> <groups> in <Suite> level before <Test1>
- <groups> >>> ONLY the groups gets executed of that <test> or <suite> depends on where it is defined; 
+<groups><include> OR <exclude> can be done in <suite> level or <test> level 
+
+ <groups><include> >>> ONLY the groups gets executed of that <test> or <suite> depends on where it is defined; 
  not all the @test methods 
 
-<groups> in <test> level>>>..>>> applied ONLY to the <classes> of the <test> 
+<groups><include> in <test> level>>>..>>> applied ONLY to the <classes> of the <test> 
 1. ONLY the tests having the given groups gets executed,tests of classes in <test> 
 2. tests without the given group in this <test> wnt get executed << groups limited the testing 
    only in this <test>; not the entire <Suite>
 3. plus all other tests <test> of the suite(tests in the other <test>)gets executed.
 
-<groups> in <Suite> level>>>.. >>> applied to the all <test> tests of the <Suite>
+<groups><include> in <Suite> level>>>.. >>> applied to the all <test> tests of the <Suite>
 1. ONLY the tests having the given groups gets executed, tests of classes in all <test>s of that <Suite>
 2. tests without the given group wnt get executed>>.if that group name is not there for any @test method then that method wont get executed.
 
@@ -125,24 +127,24 @@ groups >> to limit the no of testcases execution!! - retesting or sanity or smok
 @Test(priority=2,  groups= {"functional","smoke"}   doLogin in TestCase4 
 	
 
-<groups> in <test> level>>>..>>> applied ONLY to the <classes> of the <test> 
+<groups><include> in <test> level>>>..>>> applied ONLY to the <classes> of the <test> 
 1. ONLY the tests having the given groups gets executed,tests of classes in <test> 
 2. tests without the given group in this <test> wnt get executed << groups limited the testing 
    only in this <test>; not the entire <Suite>
 3. plus all other tests <test> of the suite(tests in the other <test>)gets executed.
 
-<groups> in <Suite> level>>>.. >>> applied to the all <test> tests of the <Suite>
+<groups><include> in <Suite> level>>>.. >>> applied to the all <test> tests of the <Suite>
 1. ONLY the tests having the given groups gets executed, tests of classes in all <test>s of that <Suite>
 2. tests without the given group wnt get executed>>.if that group name is not there for any @test method then that method wont get executed.
 
 	
 	
-	<groups> in <Suite> level>>>.. >>> applied to the all <test> tests of the <Suite>
+	<groups><include> in <Suite> level>>>.. >>> applied to the all <test> tests of the <Suite>
 1. only the given groups of that <Suite> gets executed, 
 2. no other tests of that <Suite> 
  
   
- groups> in <test> level>>>..>>> applied to the all <classes> tests of the <test>
+ groups><include> in <test> level>>>..>>> applied to the all <classes> tests of the <test>
 1. only the groups of that test gets executed, 
 2. no other tests of that <test> 
 3. plus all other tests <test> of the suite(tests in the other <test>)gets executed.

@@ -4,7 +4,9 @@
 <!-- testng6.xml >> <groups> in <test> level inside <Test1>
 ONLY groups of Test1 gets executed!! and the rest of tests>>> <test> in <suite>
 
-<groups> in <test> level>>>..>>> applied ONLY to the <classes> of the <test> 
+<groups><include> OR <exclude> can be done in <suite> level or <test> level 
+
+<groups><include> in <test> level>>>..>>> applied ONLY to the <classes> of the <test> 
 1. ONLY the tests having the given groups gets executed,tests of classes in <test> 
 2. tests without the given group in this <test> wnt get executed << groups limited the testing 
    only in this <test>; not the entire <Suite>

@@ -4,9 +4,10 @@
 
 <!-- notes
 
-testng.xml >>  NO doUserReg, doLogin methods in TestCase1.class 
-NO  BaseTestClass>>>   <class name="basics.BaseTestClass"/>
-
+testng.xml >>  
+1. annotations order
+2. testcases 1, 2,3 and basetestclass
+3. all classes in single <test name ="Test">
 -->
 
 <!-- thread-count="5" is deleted  from <test  name="Test"> -->
@@ -15,7 +16,7 @@ NO  BaseTestClass>>>   <class name="basics.BaseTestClass"/>
   <!--  <test thread-count="5" name="Test"> Test -->
    <test  name="Test">        <!-- thread-count="5" is deleted  -->
     <classes>
-     
+       <class name="basics.TestCase1"/>
       <class name="basics.TestCase3"/>
       <class name="basics.TestCase2"/>
       <class name="basics.BaseTestClass"/>
@@ -28,30 +29,50 @@ notes:
 
 all testcases in test folder -->
 <!--
-     1.  test order based on Annotations in the class
-     2.  test cases execution  order of classes is based on the order of classes in the testng.xml
+   1.  test order based on Annotations in the class
+   2.  test cases execution  order of classes is based on the order of classes in the testng.xml
  
-<classes>
+		<classes>
       <class name="basics.TestCase1"/>
        <class name="basics.TestCase3"/>
       <class name="basics.TestCase2"/>
       <class name="basics.BaseTestClass"/>
-    </classes>  
-    TestCase1 TestCase3 TestCase2 >> in TestCase2.java class - 
-    // after execution see results of running suite - not console - to see the order of methods (in the classes) execution
-    
-    3. order of @Test methods based on priority or by alphabetically
-and then from the classes its by alphabetically by default or else on priority - 1 highest
+    	</classes>  
+   
+    		order is TestCase1- TestCase3- TestCase2  as in <classes> tag
+    		// after execution see results of running suite - not console - to see the order of methods (in the classes) execution
+      BaseTestClass has @BeforeSuite and AfterSuite -it will be first
+   3. order of @Test methods based on priority or by alphabetically
+     and then from the classes its by alphabetically by default or else on priority - 1 highest
 
-    4. BaseTestClass has @BeforeSuite so it is first test
+   4. BaseTestClass has @BeforeSuite so it is first test
+   5. BeforeMethod and AfterMethod applicable only for that class >> TestCase1.class
 
 
-testng.xml >> no doUserReg, doLogin methods in TestCase1.class
-
+output>>Results of Running Suite
+ [RemoteTestNG] detected TestNG version 7.4.0
  
- NO  BaseTestClass>>>   <class name="basics.BaseTestClass"/>
- as the BaseTest class is extended to other classes its not required here
- it will be executed by default 
+@BeforeSuite Initializing Everything !!!
+
+@BeforeTest createDBConn in TestCase1       Creating db conn
+
+@BeforeMethod launchBrowser in TestCase1            Launching browser
+@Test(priority=1,groups="functional")  doUserReg in TestCase1             Executing User Reg test
+@AfterMethod closeBrowser  in TestCase1     Closing the browser
+@BeforeMethod launchBrowser in TestCase1            Launching browser
+@Test(priority=2,groups="functional") doLogin  in TestCase1              Executing login test
+@AfterMethod closeBrowser  in TestCase1     Closing the browser
+
+@Test(priority=1    doUserReg in TestCase3              Executing User Reg test
+@Test(priority=2,     doLogin in TestCase3               Executing login test
+@Test(priority=3,        thirdTest  in TestCase3        Executing Third Test
+@Test(priority=4,            fourthTest in TestCase3       Executing Fourth Test
+
+@Test(groups="smoke")validateTitles validateTitles TestCase2                Beginning
+
+@AfterTest closeDBConn in TestCase1     Closing DB Conn
+
+@AfterSuite Quitting Everything !!!
  
 
  -->

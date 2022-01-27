@@ -2,7 +2,16 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
 
-<!-- testng2.xml >>  doUserReg, doLogin methods in TestCase1.class -->
+<!-- testng2.xml >>  
+1. annotations order
+2. NO TestCase1.class in <classes> tag
+3. NO  BaseTestClass>>>   <class name="basics.BaseTestClass"/> in this testng.xml
+   if NO  BaseTestClass then also it executes!
+4. testcases 2,3 
+5. all classes in single <test name ="Test">
+
+-->
+
 <!-- thread-count="5" is deleted  from <test  name="Test"> -->
 
 
@@ -10,7 +19,7 @@
   <!--  <test thread-count="5" name="Test"> Test -->
    <test  name="Test">
     <classes>
-      <class name="basics.TestCase1"/>
+      
       
       <class name="basics.TestCase3"/>
       <class name="basics.TestCase2"/>
@@ -26,33 +35,28 @@ notes:
  // after execution see results of running suite - not console - to see the order of methods (in the classes) execution
     
 
-testng2.xml >>  doUserReg, doLogin methods in TestCase1.class
 
 all classes in one <test> -only one test
 >>in results/output window:
 Suite >>
    >>Test1 
-   >> basics.TestCase1.class >> methods in TestCase1.class
-      basics.TestCase3.class >> methods 
+   >> basics.TestCase3.class >> methods 
       basics.TestCase2.class >>methods 
  
- NO  BaseTestClass>>>   <class name="basics.BaseTestClass"/>
+1.  NO  BaseTestClass>>>   <class name="basics.BaseTestClass"/>
+    //BeforeSuite and AFterSuite in BaseTestclass-that wont be executed.
+2.  NO TestCase1.java not in <classes> tag
+3.  BeforeTest,AfterTest applicable for the <test name=".... "> in which that class (here TestCase1.java)
+     in <test.. <classes> tag >>TestCase1.java not in <classes> tag- so not in results
+4.  BeforeMethod, AfterMethod applicable only for that class >> TestCase1.class -so that also wont be there
+5.  if NO  BaseTestClass then also it executes!  <class name="basics.BaseTestClass"/>
  as the BaseTest class is extended to other classes its not required here
  it will be executed by default 
+ 
  
  output>>Results of Running Suite
  [RemoteTestNG] detected TestNG version 7.4.0
  
-@BeforeSuite Initializing Everything !!!
-
-@BeforeTest createDBConn in TestCase1       Creating db conn
-
-@BeforeMethod launchBrowser in TestCase1            Launching browser
-@Test(priority=1,groups="functional")  doUserReg in TestCase1             Executing User Reg test
-@AfterMethod closeBrowser  in TestCase1     Closing the browser
-@BeforeMethod launchBrowser in TestCase1            Launching browser
-@Test(priority=2,groups="functional") doLogin  in TestCase1              Executing login test
-@AfterMethod closeBrowser  in TestCase1     Closing the browser
 
 @Test(priority=1    doUserReg in TestCase3              Executing User Reg test
 @Test(priority=2,     doLogin in TestCase3               Executing login test
@@ -61,9 +65,9 @@ Suite >>
 
 @Test(groups="smoke")validateTitles validateTitles TestCase2                Beginning
 
-@AfterTest closeDBConn in TestCase1     Closing DB Conn
 
-@AfterSuite Quitting Everything !!!
+
+
  
  
  -->

@@ -81,8 +81,7 @@
 2. TestCase3 in Test3
 3. <groups> in Test1
 
-Results: these methods get executed
-
+Results:
 Test1>> TestCase1 dogrouping1 
 
 Test1>> TestCase3  doUserReg 

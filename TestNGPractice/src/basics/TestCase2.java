@@ -8,13 +8,13 @@ public class TestCase2 extends BaseTestClass {
 	
 	@Test(groups = "smoke")
 	//@Test
-	public void validateTitles() {
+	public void TC2Method1() {
 
-		System.out.println("@Test (groups=  smoke   )validateTitles validateTitles TestCase2                Beginning");
+		System.out.println("TC2 @Test  TC2Method1(groups=  smoke   )validateTitles validateTitles TestCase2                Beginning");
 		
 		//   TestCase2   validateTitles  (groups = "smoke")
 		
-		
+		 
 		/*
 		 * String expected_title = "Yahoo.com"; //excel String actual_title =
 		 * "Gmail.com"; //selenium
