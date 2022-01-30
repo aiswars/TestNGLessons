@@ -33,7 +33,20 @@
 	@Test(invocationCount=5)
 	public void executeTest() {
 	System.out.println("Invocation count to run a test multiple times");
-TC3InvocationCount.java Run As TestNG Test
+///>> TC3InvocationCount.java Run As TestNG Test
+//  output results 
+//  RemoteTestNG] detected TestNG version 7.4.0
+//  Invocation count to run a test multiple times
+//  Invocation count to run a test multiple times
+//  Invocation count to run a test multiple times
+//  Invocation count to run a test multiple times
+//  Invocation count to run a test multiple times
+//  PASSED: executeTest
+//  PASSED: executeTest
+//  PASSED: executeTest
+//  PASSED: executeTest
+//  PASSED: executeTest
+
 	
 	
 	
