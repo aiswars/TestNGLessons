@@ -1,0 +1,16 @@
+
+  1. use <parallel = "tests"> in <Suite > level in testng xml file
+    <!-- <suite name="Parallel Suite" parallel="tests">  -->
+  2. can pass browser name as paramaeter value to testmethods 
+	@Parameters({"browser"})
+	@Test
+	public void doLogin(String b) throws InterruptedException {
+		
+		Date d = new Date(); // to get the time 2 browsers are run
+		System.out.println("Browser name : "+b+"--"+d);
+		Thread.sleep(2000); //wait given to pause after first browser to see the difference while using <parallel> and not using it
+	}
+    Date and wait given to see the difference while using <parallel> and not using it.
+     Run testngxml file- Run As TestnG Suite
+    try using <parallel> and not using it -
+	
