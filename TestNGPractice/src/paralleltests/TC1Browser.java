@@ -5,6 +5,7 @@ import java.util.Date;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+//Running parallel tests using <parallel> in tesrng xml file
 public class TC1Browser { //Run testngParallelTest.xml - 2 <test>s- browser values- chrome and firefox
 		
 	@Parameters({"browser"})

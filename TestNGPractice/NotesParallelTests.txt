@@ -1,4 +1,11 @@
+2 ways for doing test parallely
+1. <parallel> in testng xml file
+2. @DataProvider(parallel=true)
 
+
+
+1. <parallel> in testng xml file
+------------------------------===========
   1. use <parallel = "tests"> in <Suite > level in testng xml file
     <!-- <suite name="Parallel Suite" parallel="tests">  -->
   2. can pass browser name as paramaeter value to testmethods 
@@ -14,3 +21,8 @@
      Run testngxml file- Run As TestnG Suite
     try using <parallel> and not using it -
 	
+	
+	
+	2. @DataProvider(parallel=true)
+	---------------------------------------------------------------------------------------
+	TC2DPParallelTests.java Run As TestNg test
