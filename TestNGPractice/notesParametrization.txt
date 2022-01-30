@@ -1,0 +1,142 @@
+
+There are 2 ways to do parametrization in testNG
+1. TestNG XML parametrization - <parameters> tag in testNg xml file
+2. DataProvider annotation in java class file
+
+ 
+ DataProvider annotation
+ ----------------------------------------
+
+DataProvider annotation can be used with excel file to get data feom the excel sheet
+for this use Apache poi jars.
+
+  1. a method for providing data from excel file with the annotation @DataProvider
+  2. and with test method give the testmethod name >>   @Test(dataProvider="getData")
+ OR
+  3.  give a name for the DataProvider and give that name of DataProvider in testcase class
+      @DataProvider(name="dp1")    >>>>>   @Test(dataProvider="dp1")
+   
+in testcase class file:
+ 1. 
+	@Test(dataProvider="getData")
+	public void TC1ParamtrLogin(String username, String password) {}
+			
+ 2.	@DataProvider
+	public Object[][] getData() {
+	Object[][] data = new Object[3][2];
+	.....
+	.. return data 
+	}
+	
+  3.    1. @Test( dataProvider="dp1")
+		   public void testLogin(String username,String password){
+		2. @DataProvider(name="dp1")
+		   public static Object[][] getData(){
+		   //define input data -   Run As TestNG Test	
+	
+	
+		the data in row n col should be given to testmethod as parameters
+		row -
+		colun - 
+		
+	DataProvider annotation can be used with excel file to get data feom the excel sheet
+for this use Apache poi jars.	
+		1. add poi >> project byild path add extrnal jars add poi jars
+		2. utility java class file to read excel file
+		3. excel file with testdata -testdata.xlsx
+
+create object of excel utitlity file in testcase class give path of testdata excel file in the constructor		
+
+	The name was originally an acronym for "Poor Obfuscation Implementation", referring humorously to the fact 
+	that the file formats seemed to be deliberately obfuscated, but poorly, since they were successfully reverse-engineered.	
+	
+	
+
+   Handling: DataProvider and tests in 2 different classses - using dataProviderClass property
+--------------------------------------------------------------------------------------------------
+	
+	1. @DataProvider in one class and @Test testmethods in another class
+	2. give a name for the DataProvider and give that name of DataProvider in testcase class
+	3. use dataProviderClass property in testmethods class with  @Test
+		
+	1. @Test( dataProviderClass = handlingMultipleDP.class, dataProvider="dp1")
+	   public void testLogin(String username,String password){
+	
+	2. @DataProvider(name="dp1")
+	   public static Object[][] getData(){
+	   //define input data
+	    Run As TestNG Test
+	   
+>> in testmethods class with  @Test( dataProvider="dp1") give dataProviderClass = name of the javaclassfile where @DataProvider is given
+	 
+
+	Handling Multiple  DataProviders for tests in different class
+------------------------------------------------------------------------
+	
+	Multiple tests can access the same DataProvider or different DataProvider
+	
+	Handling Same  DataProvider for tests in different classs
+	----------------------------------------------------------------
+	using same dataprovder for multiple tests:
+	get the testmethod name using Method check the name of the method in if() and use //import java.lang.reflect.Method;
+	
+>> try adding this testclases to xml and run AS TestNgSuite
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+   2nd way>> TestNG XML parametrization - <parameters> tag in testNg xml file
+--------------------------------------------------------------------------------------
+1. Add <parameter> tag in testng xml file
+2. Add @Parameters annotaion in testmethod javaclass file
+
+  
+  1. Add <parameter> tag in testng xml file- give a name and value. 2. Pass this names to the tests in the testcase class.
+     Can provide multiple <parameter names- then pass multiple names to the tests.
+         <test name="TestParametersFromXML Test1">
+		<parameter name="browser" value="firefox" />
+	
+  2. Pass this names to the tests in the testcase class. 
+	    @Parameters({"browser","env"}) //import org.testng.annotations.Parameters;
+		@Test
+		public void getBrowser(String browser,String env) {
+  3. Can provide multiple <parameter names- then pass multiple names to the tests.	
+		<parameter name="browser" value="chrome" />
+		<parameter name="env" value="uat" />
+		
+		
+	 3<test>s - for same class file-TestParametersFromXML.java-The class has 2 testmethods-
+	 Methodfor1Parameter - in 3 <test>
+	  Methodfor2Parameter - in 2 <test>
+   first <test tests>- TestParametersFromXML Test3 - having only one parameter-Methodfor1Parameter
+   other 2<test tests> having 2 parameters.- Methodfor2Parameters 
+   
+    2 parameters Methodfor2Parameters multibrowser testing
+ -->
+	
+	
+	ERROR Parameter &apos;browser&apos; is required by @Test on method Methodfor1Parameter but has not been marked @Optional or defined
+	<parameter name="browser" value="chrome" />
+		<parameter name="env" value="uat" />
+		IF SAME NAME = BROWSER IN ALL THREE TESTS RESULTS: 1CHROME IS NOT TAKEN -Methodfor1Parameter
+			2firefox  Methodfor1Parameter
+			2firefox--qa   Methodfor2Parameters
+			3chrome  Methodfor1Parameter
+			3chrome--uat   Methodfor2Parameters
+		1chrome  Methodfor1Parameter SHOULD ALSO COME
+		IF DIFFERENT NAMES, NAME = BROWSER2 FOR TEST1 AND TEST2 THEN BELOW ERROR
+		ERROR Parameter &apos;browser&apos; is required by @Test on method Methodfor1Parameter but has not been marked @Optional or defined
+	
+		
+		
+		
+		
+	<test name="TestParametersFromXML Test2">
+		<parameter name="browser" value="chrome" > </parameter>
+		<parameter name="env" value="uat" />
+
+		<classes>
+			<class name="parametrization.TestParametersFromXML" />
+		</classes>
+	</test> <!-- Test -->	
