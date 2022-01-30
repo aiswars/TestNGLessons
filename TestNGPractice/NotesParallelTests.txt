@@ -26,3 +26,19 @@
 	2. @DataProvider(parallel=true)
 	---------------------------------------------------------------------------------------
 	TC2DPParallelTests.java Run As TestNg test
+	
+	
+	invocationCount - to run same test multiple times
+--------------------------------------------------------------------------
+	@Test(invocationCount=5)
+	public void executeTest() {
+	System.out.println("Invocation count to run a test multiple times");
+TC3InvocationCount.java Run As TestNG Test
+	
+	
+	
+	
+	
+	
+	
+	
