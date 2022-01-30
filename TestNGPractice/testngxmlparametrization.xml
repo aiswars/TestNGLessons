@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="xml parameters">
+
+
+<!-- 
+   3<test>s - for same class file-TestParametersFromXML.java
+   first <test tests>- TestParametersFromXML Test3 - having only one parameter-Methodfor1Parameter
+   other 2<test tests> having 2 parameters.- Methodfor2Parameters 
+   	 Methodfor1Parameter - in 3 <test>
+	  Methodfor2Parameter - in 2 <test>
+    2 parameters Methodfor2Parameters multibrowser testing
+ -->
+ 
+  <test name="TestParametersFromXML Test3"><!-- 1 parameter- Methodfor1Parameter-->
+		<parameter name="browser" value="1chrome" > </parameter> <!-- 1st parameter -->
+		
+		<classes>
+			<class name="parametrization.TestParametersFromXML" /> <!-- 1 parameter- Methodfor1Parameter-->
+		</classes>
+	</test> <!-- Test -->
+	
+	<test name="TestParametersFromXML Test1">      <!--2 parameters  multibrowser testing-->
+		<parameter name="browser" value="2firefox" > </parameter> <!-- 1st parameter -->
+		<parameter name="env" value="qa" >    </parameter>       <!-- 2nd parameter -->
+
+		<classes>
+			<class name="parametrization.TestParametersFromXML" /> <!--2 parameters Methodfor2Parameters-->
+		</classes>
+	</test> <!-- Test -->
+		
+	<test name="TestParametersFromXML Test2">               <!--2 parameters values different for diff<test>s  multibrowser testing-->
+		<parameter name="browser" value="3chrome" > </parameter>
+		<parameter name="env" value="uat" />
+
+		<classes>
+			<class name="parametrization.TestParametersFromXML" /> <!--2 parameters Methodfor2Parameters-->
+		</classes>
+	</test> <!-- Test -->
+	
+</suite> <!-- Suite -->
